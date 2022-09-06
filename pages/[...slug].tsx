@@ -2,7 +2,7 @@ import getConfig from 'next/config';
 import type {NextPageWithLayout} from './_app';
 import {Fragment, ReactElement} from 'react';
 import {useRouter,NextRouter} from 'next/router';
-import Layout from '../components/layout';
+import Layout from '../components/layout/layout.master';
 // const {baseUrlApi}=getConfig();
 
 
