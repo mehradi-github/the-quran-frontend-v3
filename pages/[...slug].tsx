@@ -2,7 +2,7 @@ import getConfig from 'next/config';
 import type {NextPageWithLayout} from './_app';
 import {Fragment, ReactElement} from 'react';
 import {useRouter,NextRouter} from 'next/router';
-import Layout from './components/Layout';
+import Layout from '../components/layout';
 // const {baseUrlApi}=getConfig();
 
 
@@ -20,8 +20,7 @@ const Surah: NextPageWithLayout = () => {
   //  console.log(publicRuntimeConfig.staticFolder)
     
 return(
-    <div>Slug</div>
-)
+    <div>Slug</div>)
 };
 
 Surah.getLayout=(page:ReactElement)=>{
