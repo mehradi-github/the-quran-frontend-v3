@@ -1,8 +1,8 @@
 import getConfig from 'next/config';
-import type {NextPage} from 'next';
-import {Fragment} from 'react';
+import type {NextPageWithLayout} from './_app';
+import {Fragment, ReactElement} from 'react';
 import {useRouter,NextRouter} from 'next/router';
-
+import Layout from './components/Layout';
 // const {baseUrlApi}=getConfig();
 
 
@@ -12,7 +12,7 @@ import {useRouter,NextRouter} from 'next/router';
 // }
 // interface P extends IP {}
 
-const Surah: NextPage = () => {
+const Surah: NextPageWithLayout = () => {
     const router:NextRouter = useRouter();
     //console.log(router.query.slug);
   //  const { serverRuntimeConfig, publicRuntimeConfig } = getConfig()
@@ -23,5 +23,13 @@ return(
     <div>Slug</div>
 )
 };
+
+Surah.getLayout=(page:ReactElement)=>{
+    return(
+        <Layout>
+            {page}
+        </Layout>
+    )
+}
 
 export default Surah;
