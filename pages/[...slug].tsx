@@ -12,7 +12,7 @@ import Layout from '../components/layout/layout.master';
 // }
 // interface P extends IP {}
 
-const Surah: NextPageWithLayout = () => {
+const Chapter: NextPageWithLayout = () => {
     const router:NextRouter = useRouter();
     //console.log(router.query.slug);
   //  const { serverRuntimeConfig, publicRuntimeConfig } = getConfig()
@@ -23,7 +23,7 @@ return(
     <div>Slug</div>)
 };
 
-Surah.getLayout=(page:ReactElement)=>{
+Chapter.getLayout=(page:ReactElement)=>{
     return(
         <Layout>
             {page}
@@ -31,4 +31,4 @@ Surah.getLayout=(page:ReactElement)=>{
     )
 }
 
-export default Surah;
+export default Chapter;
