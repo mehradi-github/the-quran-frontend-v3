@@ -1,8 +1,9 @@
 import getConfig from 'next/config';
-import type {NextPageWithLayout} from './_app';
+import type {NextPageWithLayout} from '../_app';
 import {Fragment, ReactElement} from 'react';
 import {useRouter,NextRouter} from 'next/router';
-import Layout from '../components/layout/layout.master';
+import Layout from '../../components/layout/layout.master';
+import Chapter from '../../components/chapter/chapter.component';
 // const {baseUrlApi}=getConfig();
 
 
@@ -12,7 +13,7 @@ import Layout from '../components/layout/layout.master';
 // }
 // interface P extends IP {}
 
-const Chapter: NextPageWithLayout = () => {
+const Surah: NextPageWithLayout = () => {
     const router:NextRouter = useRouter();
     //console.log(router.query.slug);
   //  const { serverRuntimeConfig, publicRuntimeConfig } = getConfig()
@@ -20,10 +21,11 @@ const Chapter: NextPageWithLayout = () => {
   //  console.log(publicRuntimeConfig.staticFolder)
     
 return(
-    <div>Slug</div>)
+    <Chapter/>
+)
 };
 
-Chapter.getLayout=(page:ReactElement)=>{
+Surah.getLayout=(page:ReactElement)=>{
     return(
         <Layout>
             {page}
@@ -31,4 +33,4 @@ Chapter.getLayout=(page:ReactElement)=>{
     )
 }
 
-export default Chapter;
+export default Surah;
