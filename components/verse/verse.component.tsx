@@ -10,7 +10,7 @@ const Verse:FC = ()=>{
       <CardHeader
         avatar={
           <Avatar variant="signed" >
-           <Typography variant='verse' fontSize={15}>1:1</Typography> 
+           <Typography variant='verseNumber' fontSize={15}>1:1</Typography> 
           </Avatar>
         }
         action={

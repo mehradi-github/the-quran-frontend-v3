@@ -13,12 +13,14 @@ declare module '@mui/material/styles' {
   interface TypographyVariants {
    // surahName: React.CSSProperties;
     verse: React.CSSProperties;
+    verseNumber: React.CSSProperties;
   }
 
   // allow configuration using `createTheme`
   interface TypographyVariantsOptions {
    // surahName?: React.CSSProperties;
     verse?: React.CSSProperties;
+    verseNumber?: React.CSSProperties;
   }
 }
 
@@ -27,6 +29,7 @@ declare module '@mui/material/Typography' {
   interface TypographyPropsVariantOverrides {
   //  surahName: true;
     verse: true;
+    verseNumber: true;
   }
 }
 declare module '@mui/material/Avatar' {
@@ -55,6 +58,9 @@ const theme =React.useMemo(
         verse: {
           color: cyan[900],
           wordBreak:'break-all'          
+        },
+        verseNumber: {
+          color: blue[300]         
         }
       },
       components: {
