@@ -5,23 +5,33 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Navbar from '../navbar/navbar.component';
 import { useAppSelector } from '../../app/hooks';
 import { selectTheme } from './themeSlice';
+import { getFontFaces } from './layout.utils';
 
 
 
 const Layout: React.FC<PropsWithChildren> = ({ children })=>{
-  const mode = useAppSelector(selectTheme).mode;
+  const stateTheme = useAppSelector(selectTheme);
 // const theme =createTheme({
 //       palette: {
 //         mode,
 //       },
 //     });
+
+
+
+
 const theme =React.useMemo(
   ()=>createTheme({
       palette: {
-        mode,
+        mode:stateTheme.mode,
+      },
+      components: {
+        MuiCssBaseline: {
+          styleOverrides: getFontFaces(stateTheme.loadedFonts),
+        },
       },
     }),
-  [mode]
+  [stateTheme]
 ); 
 
     return(

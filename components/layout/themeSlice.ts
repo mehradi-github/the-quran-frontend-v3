@@ -2,10 +2,12 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { AppState } from "../../app/store";
 
 export interface themeState {
-    mode: 'dark' | 'light'
+    mode: 'dark' | 'light',
+    loadedFonts:number[]
 }
 const initialState:themeState={
     mode: 'light',
+    loadedFonts:[1]
 }
 
 export const themeSlice= createSlice({
