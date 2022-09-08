@@ -24,7 +24,7 @@ const Verse:FC = ()=>{
       <CardContent sx={{px:8,py:0,direction:'rtl'}}>
         {/* <Typography  variant={getTypographyVariant(pageNumber)} gutterBottom sx={{textAlign:'end',my:2}} > */}
         <Typography  gutterBottom sx={{color: cyan[900],fontFamily:'p1',fontSize:40,wordBreak:'break-all'}} >
-            ﭑﭒﭓﭔﭕ
+        ﭑﭒﭓﭔﭕ
          </Typography>
         <Typography gutterBottom sx={{color: cyan[900],fontFamily:'uthmani', fontSize:18}}>
         به نام خداوند بخشنده ی مهربان
