@@ -6,8 +6,34 @@ import Navbar from '../navbar/navbar.component';
 import { useAppSelector } from '../../app/hooks';
 import { selectTheme } from './themeSlice';
 import { getFontFaces } from './layout.utils';
+import { blue, cyan } from '@mui/material/colors';
 
 
+declare module '@mui/material/styles' {
+  interface TypographyVariants {
+   // surahName: React.CSSProperties;
+    verse: React.CSSProperties;
+  }
+
+  // allow configuration using `createTheme`
+  interface TypographyVariantsOptions {
+   // surahName?: React.CSSProperties;
+    verse?: React.CSSProperties;
+  }
+}
+
+// Update the Typography's variant prop options
+declare module '@mui/material/Typography' {
+  interface TypographyPropsVariantOverrides {
+  //  surahName: true;
+    verse: true;
+  }
+}
+declare module '@mui/material/Avatar' {
+  interface AvatarPropsVariantOverrides {
+    signed: true;
+  }
+}
 
 const Layout: React.FC<PropsWithChildren> = ({ children })=>{
   const stateTheme = useAppSelector(selectTheme);
@@ -25,10 +51,28 @@ const theme =React.useMemo(
       palette: {
         mode:stateTheme.mode,
       },
+      typography: {
+        verse: {
+          color: cyan[900],
+          wordBreak:'break-all'          
+        }
+      },
       components: {
         MuiCssBaseline: {
           styleOverrides: getFontFaces(stateTheme.loadedFonts),
         },
+        MuiAvatar:{
+          variants: [
+            {
+              props: { variant: 'signed' },
+              style: {
+                backgroundColor: blue['50'] ,
+                width: 50 ,
+                height: 50
+              }
+            }
+          ]
+        }
       },
     }),
   [stateTheme]

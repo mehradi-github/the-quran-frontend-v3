@@ -1,7 +1,7 @@
 import { FC, Fragment } from "react";
 import { MoreVert as MoreVertIcon,Favorite as FavoriteIcon, Share as ShareIcon } from "@mui/icons-material";
 import { Avatar, Card, CardActions, CardContent, CardHeader, IconButton, Typography } from "@mui/material";
-import { blue, cyan } from "@mui/material/colors";
+// import { blue, cyan } from "@mui/material/colors";
 
 
 const Verse:FC = ()=>{
@@ -9,8 +9,8 @@ const Verse:FC = ()=>{
         <Card sx={{  my:2 }}>
       <CardHeader
         avatar={
-          <Avatar sx={{ bgcolor: blue['50'] ,width: 50 , height: 50  }} >
-           <Typography variant='caption' sx={{ color: blue['300'] }}>1:1</Typography> 
+          <Avatar variant="signed" >
+           <Typography variant='verse' fontSize={15}>1:1</Typography> 
           </Avatar>
         }
         action={
@@ -23,10 +23,10 @@ const Verse:FC = ()=>{
       
       <CardContent sx={{px:8,py:0,direction:'rtl'}}>
         {/* <Typography  variant={getTypographyVariant(pageNumber)} gutterBottom sx={{textAlign:'end',my:2}} > */}
-        <Typography  gutterBottom sx={{color: cyan[900],fontFamily:'p1',fontSize:40,wordBreak:'break-all'}} >
+        <Typography paragraph={true} variant="verse" fontFamily={'p1'} fontSize={40}>
         ﭑﭒﭓﭔﭕ
          </Typography>
-        <Typography gutterBottom sx={{color: cyan[900],fontFamily:'uthmani', fontSize:18}}>
+        <Typography paragraph={true} variant="verse" fontFamily={'uthmani'} fontSize="18">
         به نام خداوند بخشنده ی مهربان
         </Typography>
       </CardContent>
