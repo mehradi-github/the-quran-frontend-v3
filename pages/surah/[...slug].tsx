@@ -66,8 +66,8 @@ export const getStaticPaths: GetStaticPaths<IParams> =  (context) => {
 export const getStaticProps: GetStaticProps = async (context) => {
     console.log('getStaticProps');
     console.log(context);
-   // const { slug } = context.params as IParams // no longer causes error
-    const props = {}
+    const { slug } = context.params as IParams // no longer causes error
+    const props = {slug}
     return { 
         props,
         revalidate: 10,

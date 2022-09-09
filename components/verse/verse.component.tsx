@@ -1,16 +1,18 @@
 import { FC, Fragment } from "react";
 import { MoreVert as MoreVertIcon,Favorite as FavoriteIcon, Share as ShareIcon } from "@mui/icons-material";
 import { Avatar, Card, CardActions, CardContent, CardHeader, IconButton, Typography } from "@mui/material";
+import { getFontFamilyPage, VerseModel } from "../chapter/chapter.api";
 // import { blue, cyan } from "@mui/material/colors";
 
 
-const Verse:FC = ()=>{
+const Verse:FC<VerseModel> = ({verseKey, text, translation,pageNumber})=>{
+  const fontFamilyVerse=getFontFamilyPage(pageNumber);
     return(
         <Card sx={{  my:2 }}>
       <CardHeader
         avatar={
           <Avatar variant="signed" >
-           <Typography variant='verseNumber' fontSize={15}>1:1</Typography> 
+           <Typography variant='verseNumber' fontSize={15}>{verseKey}</Typography> 
           </Avatar>
         }
         action={
@@ -23,11 +25,11 @@ const Verse:FC = ()=>{
       
       <CardContent sx={{px:8,py:0,direction:'rtl'}}>
         {/* <Typography  variant={getTypographyVariant(pageNumber)} gutterBottom sx={{textAlign:'end',my:2}} > */}
-        <Typography paragraph={true} variant="verse" fontFamily={'p1'} fontSize={40}>
-        ﭑﭒﭓﭔﭕ
+        <Typography paragraph={true} variant="verse" fontFamily={`${fontFamilyVerse}`} fontSize={40}>
+        {text}
          </Typography>
         <Typography paragraph={true} variant="verse" fontFamily={'uthmani'} fontSize="18">
-        به نام خداوند بخشنده ی مهربان
+        {translation}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>

@@ -7,6 +7,7 @@ import { useAppSelector } from '../../app/hooks';
 import { selectTheme } from './themeSlice';
 import { getFontFaces } from './layout.utils';
 import { blue, cyan } from '@mui/material/colors';
+import { selectChapter } from '../chapter/chapterSlice';
 
 
 declare module '@mui/material/styles' {
@@ -39,7 +40,8 @@ declare module '@mui/material/Avatar' {
 }
 
 const Layout: React.FC<PropsWithChildren> = ({ children })=>{
-  const stateTheme = useAppSelector(selectTheme);
+  const loadedPages = useAppSelector(selectChapter).loadedPages;
+  const mode = useAppSelector(selectTheme).mode;
 // const theme =createTheme({
 //       palette: {
 //         mode,
@@ -47,12 +49,12 @@ const Layout: React.FC<PropsWithChildren> = ({ children })=>{
 //     });
 
 
-
+console.log(loadedPages);
 
 const theme =React.useMemo(
   ()=>createTheme({
       palette: {
-        mode:stateTheme.mode,
+        mode,
       },
       typography: {
         verse: {
@@ -65,7 +67,7 @@ const theme =React.useMemo(
       },
       components: {
         MuiCssBaseline: {
-          styleOverrides: getFontFaces(stateTheme.loadedFonts),
+          styleOverrides: getFontFaces(loadedPages),
         },
         MuiAvatar:{
           variants: [
@@ -81,7 +83,7 @@ const theme =React.useMemo(
         }
       },
     }),
-  [stateTheme]
+  [loadedPages,mode]
 ); 
 
     return(

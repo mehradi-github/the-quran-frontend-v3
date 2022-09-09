@@ -3,11 +3,11 @@ import { AppState } from "../../app/store";
 
 export interface themeState {
     mode: 'dark' | 'light',
-    loadedFonts:number[]
+   // loadedFonts:number[]
 }
 const initialState:themeState={
     mode: 'light',
-    loadedFonts:[1]
+  //  loadedFonts:[1]
 }
 
 export const themeSlice= createSlice({
