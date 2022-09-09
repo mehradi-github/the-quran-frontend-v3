@@ -1,3 +1,4 @@
+import { VerifiedUserSharp } from "@mui/icons-material";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { AppState } from "../../app/store";
 import { ChapterModel, fetchChapter } from "./chapter.api";
@@ -34,8 +35,8 @@ export const chapterSlice= createSlice({
             state.status = 'loading'
           })
           .addCase(fetchChapterAsync.fulfilled, (state, action) => {
-            state.status = 'idle'
-            state.chapter = action.payload
+            state.status = 'idle';
+            state.chapter = state.chapter? action.payload && {...state.chapter,verses:[...state.chapter.verses,...action.payload.verses]} : action.payload ;
             if(state.chapter)
               state.loadedPages= Array.from(new Set<number>([...state.loadedPages, ...state.chapter.pageNumbers]))
           })

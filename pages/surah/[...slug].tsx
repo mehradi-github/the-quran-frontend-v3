@@ -48,8 +48,7 @@ interface IParams extends ParsedUrlQuery {
 
 export const getStaticPaths: GetStaticPaths<IParams> =  (context) => {
    
-    console.log('getStaticPaths');
-    console.log(context);
+    
     const arr: IParams[] = [ { slug:[ '23', '1' ] }  ]
     const paths:GetStaticPathsResult<IParams> = {
         paths: arr.map((p) => {
@@ -64,8 +63,7 @@ export const getStaticPaths: GetStaticPaths<IParams> =  (context) => {
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-    console.log('getStaticProps');
-    console.log(context);
+   
     const { slug } = context.params as IParams // no longer causes error
     const props = {slug}
     return { 

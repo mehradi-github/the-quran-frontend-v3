@@ -49,8 +49,6 @@ const Layout: React.FC<PropsWithChildren> = ({ children })=>{
 //     });
 
 
-console.log(loadedPages);
-
 const theme =React.useMemo(
   ()=>createTheme({
       palette: {
