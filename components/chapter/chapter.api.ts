@@ -14,9 +14,9 @@ export const fetchChapter=async (slug:  string | string[] | undefined):Promise<C
         {
             if(Array.isArray(slug))
             {
-                let chapter:string=slug[0];
+                let chapterId:number=parseInt(slug[0], 10);
                 let page:string= slug.length>1 ?  slug[1] : "0";
-                verses= await getChapterModel(await axios.get(`${baseUrlApi}/verses/by_chapter/${chapter}?language=en&words=true&page=${page}&per_page=10`));
+                verses= await getChapterModel(chapterId,await axios.get(`${baseUrlApi}/verses/by_chapter/${chapterId}?language=en&words=true&page=${page}&per_page=10`));
                 
             }
         }
@@ -33,6 +33,7 @@ export interface VerseModel{
     translation: string
 }
 export interface ChapterModel{
+    chapterId:number,
     currentPage:number,
     nextPage?:number,
     totalPages:number,
@@ -41,8 +42,9 @@ export interface ChapterModel{
     verses:VerseModel[]
 }
 
-export const getChapterModel=async (response:any):Promise<ChapterModel>=>{
+export const getChapterModel=async (chapterId:number,response:any):Promise<ChapterModel>=>{
     var chapter:ChapterModel={
+    chapterId:chapterId,    
     currentPage:response.data.pagination.current_page as number,
     nextPage:response.data.pagination.next_page as number,
     totalPages:response.data.pagination.total_pages as number,
